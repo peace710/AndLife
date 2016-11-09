@@ -1,0 +1,27 @@
+<template>
+  <div static>
+    <text class="content">{{ word }}</text>
+  </div>
+</template>
+
+<style>
+.content{
+	font-size:40;
+}
+</style>
+
+<script>
+  module.exports = {
+    ready: function() {
+      this.word = 'Data changes'
+    },
+    data: {
+      word: 'Hello, static'
+    }
+  }
+</script>
+
+<!--
+添加 static 关键字，渲染结果会是 Hello, static，相当于渲染一个静态的节点，ready 函数中对数据 word 的改变不会被监听，从而 text 值不会改变。
+static 属性设计的目的是为了降低长列表、纯静态页面的内存开销。小心的使用它，因为它可能会中断你的页面逻辑。
+-->

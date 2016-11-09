@@ -1,0 +1,18 @@
+<template>
+	<div>
+		<text onclick="click" style="font-size:100px">点击我测试</text>
+
+         <richText tel="12306" style="width:200;height:100">12306</richText>
+	</div>
+</template>
+
+<script>
+	module.exports = {
+		methods:{
+			click:function(){
+				var common = require('@weex-module/commonModule');
+				common.toast("Hello World!");
+			}
+		}
+	}
+</script>

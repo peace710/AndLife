@@ -1,0 +1,23 @@
+<template>
+	<div>
+		<text style="font-size:48;" onclick="update">Click to update childs</text>
+		<life-text></life-text>
+		<life-text></life-text>
+	</div>
+</template>
+
+<script>
+	require('../components/life-text.we')
+	module.exports = {
+		methods:{
+			update:function(){
+				this.$broadcast('changeTitle',{title:'momo'});
+				this.$broadcast('changeImage',{url:'http://ww4.sinaimg.cn/mw1024/a13fa4bbgw1eouylimvfcj20g40o6myl.jpg'})
+			}
+		}
+	}
+</script>
+
+<!--
+父组件可以使用this.$broadcast([String type], [Object detail]) 广播消息给所有子组件。
+-->

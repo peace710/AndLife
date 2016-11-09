@@ -1,0 +1,26 @@
+<template>
+	<container style="flex-direction:row;">
+		<image class="pic" src="{{image}}"></image>
+		<text class="content">{{title}}</text>
+	</container>
+</template>
+
+<style>
+.pic{
+	width:150;
+	height:150;
+}
+.content{
+	font-size:48;
+	color:red;
+}
+</style>
+
+<script>
+	module.exports = {
+		data:{
+			image:null,
+			title:null
+		}
+	}
+</script>

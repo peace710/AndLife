@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">basic</string>
+    <string name="add_button">新增按钮</string>
+    <string name="remove_button">删除按钮</string>
+    <string name="button">按钮</string>
+    <string name="obtain_date">获取时间</string>
+    <string name="draw_lottery">摇奖</string>
+    <string name="lottery_results">开奖结果</string>
+    <string name="interview_question">面试题</string>
+    <string name="scene_question">自定义View的状态是如何保存的</string>
+    <string name="scene_answer">Activity类的onSaveInstanceState默认实现会恢复Activity的状态，默认实现会为布局中的每个View调用相应的 onSaveInstanceState方法，让每个View都能保存自身的信息。
+这里需要注意一个细节：想要保存View的状态，需要在XML布局文件中提供一个唯一的ID（android:id），如果没有设置这个ID的话，View控件的onSaveInstanceState是不会被调用的。</string>
+    <string name="content">Message：消息分为硬件产生的消息(如按钮、触摸)和软件生成的消息；
+MessageQueue：消息队列的主要功能向消息池投递消息(MessageQueue.enqueueMessage)和取走消息池的消息(MessageQueue.next)；
+Handler：消息辅助类，主要功能向消息池发送各种消息事件(Handler.sendMessage)和处理相应消息事件(Handler.handleMessage)；
+Looper：不断循环执行(Looper.loop)，按分发机制将消息分发给目标处理者</string>
+
+    <string name="another_title">为什么Dialog不能用Application的Context?</string>
+
+    <string name="another_content">那为什么一定要是Activity的Token呢？我想使用Token应该是为了安全问题，通过Token来验证WindowManager服务请求方是否是合法的。如果我们可以使用Application的Context，或者说Token可以不是Activity的Token，那么用户可能已经跳转到别的应用的Activity界面了，但我们却可以在别人的界面上弹出我们的Dialog，想想就觉得很危险。
+如你跳到了微信界面了，这时在后台的某个应用里调用Dialog的show，那么微信的界面上会显示一个Dialog，这个Dialog可能会让用户输入密码什么的，而用户完全无法区分是不是微信弹出的。</string>
+
+    <string name="interpolator">AccelerateDecelerateInterpolator 在动画开始与结束的地方速率改变比较慢，在中间的时候加速
+AccelerateInterpolator  在动画开始的地方速率改变比较慢，然后开始加速
+AnticipateInterpolator 开始的时候向后然后向前甩
+AnticipateOvershootInterpolator 开始的时候向后然后向前甩一定值后返回最后的值
+BounceInterpolator   动画结束的时候弹起
+CycleInterpolator 动画循环播放特定的次数，速率改变沿着正弦曲线
+DecelerateInterpolator 在动画开始的地方快然后慢
+LinearInterpolator   以常量速率改变
+OvershootInterpolator    向前甩一定值后再回到原来位置</string>
+
+
+    <string name="zoom_out">Zoom-out page transformer</string>
+    <string name="depth">Depth page transformer</string>
+
+    <string name="activity_life_cycles">Activity生命周期</string>
+    <string name="activity_one">Activity One</string>
+    <string name="activity_another">Activity Another</string>
+    <string name="jump_to_activity">跳转Activity</string>
+    <string name="activity_a_2_activity_b">Activity A 到 Activity B的生命周期</string>
+    <string name="activity_full">(Activity B完全覆盖Activity A)</string>
+    <string name="activity_part">(Activity B部分覆盖Activity A)</string>
+    <string name="show_life_cycles">显示生命周期</string>
+</resources>

@@ -1,0 +1,26 @@
+<template>
+	<container>
+		<text id="top">Top</text>
+			<container style="height:720;background-color:#990022;">
+				<text>{{content}}</text>
+			</container>
+		<text style="font-size:48;" onclick="info">TopInfo</text>
+	</container>
+</template>
+<script>
+	var dom = require('@weex-module/dom');
+	module.exports = {
+		data:{
+			content:''
+		},
+		methods:{
+			info:function(){
+				var top = this.$el('top');
+				this.content = top;
+				dom.updateAttrs(top, {"value":"hello"});
+				dom.updateStyle(top, {"color":"green","fontSize":48});
+				//dom.scrollToElement(top,{offset:0});
+			}
+		}
+	}
+</script>

@@ -1,0 +1,15 @@
+<style>
+	.title{
+		color:red;
+	}
+</style>
+
+
+<template>
+	<div>
+		<text class="title">Hello World!</text>
+	</div>
+</template>
+
+
+

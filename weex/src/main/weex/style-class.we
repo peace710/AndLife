@@ -1,0 +1,33 @@
+<template>
+	<container>
+		<text style="font-size:{{fontSize}};">Houston Rockets</text>
+		<text class="large {{textClass}}">Tracy McGrady</text>
+	</container>
+</template>
+
+<style>
+	.large{
+		font-size:32;
+	}
+	.highlight{
+		color:#ff0000;
+	}
+</style>
+
+<script>
+	module.exports = {
+		data:{
+			fontSize:32,
+			textClass:'highlight'
+		}
+	}
+</script>
+
+<!--
+注意事项
+为了简化页面设计和实现, 屏幕的宽度统一为750像素, 不同屏幕会按照比例转化为这一尺寸.
+标准CSS支持很多样式选择器, 但Weex目前只支持单个类的选择器.
+标准CSS支持很多的长度单位,Weex目前只支持像素,并且px在样式中可以忽略不写, 直接使用对应的数值.更多详情请查看 通用样式.
+子元素的样式不会继承自父元素, 这一点与标准CSS不同, 比如color和font-size等属性.
+标准CSS包含了非常多的样式属性, 但Weex只支持了其中的一部分, 包括盒模型,flexbox,position等布局属性. 以及font-size, color等样式.
+-->

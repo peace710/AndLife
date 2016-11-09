@@ -1,0 +1,115 @@
+﻿责任链模式
+定义：一个请求沿着一条链传递，直到该链上的某个处理者处理它为止。
+
+参考Android事件传递机制
+
+public class RoomApply {
+    private int peopleCount;
+    private String reply;
+
+    public RoomApply(int peopleCount){
+        this.peopleCount = peopleCount;
+    }
+
+    public int getCount() {
+        return peopleCount;
+    }
+
+    public void obtainReply() {
+        System.out.println(reply);
+    }
+
+    public void reply(String reply) {
+        this.reply = reply;
+    }
+}
+
+//房间规模 SmallRoom < MidRoom < LargeRoom
+public abstract class Room {
+    //高一规模的房间
+    private Room room;
+    private int peopleCount;
+
+    public Room(int peopleCount){
+        this.peopleCount = peopleCount;
+    }
+
+    public void setRoom(Room room){
+        this.room = room;
+    }
+
+    public void handleApply(RoomApply roomApply){
+         int count = roomApply.getCount();
+         if (count < peopleCount){
+             reply(roomApply);
+         }else{
+             if (null != room){
+                 room.handleApply(roomApply);
+             }else{
+                 roomApply.reply("没有可容纳" + count + "人数的房间!");
+             }
+         }
+    }
+
+    public abstract void reply(RoomApply roomApply);
+}
+
+public class SmallRoom extends Room {
+
+    public SmallRoom(int peopleCount) {
+        super(peopleCount);
+    }
+
+    @Override
+    public void reply(RoomApply roomApply) {
+        roomApply.reply("可使用SmallRoom");
+    }
+}
+
+public class MidRoom extends Room {
+    public MidRoom(int peopleCount) {
+        super(peopleCount);
+    }
+
+    @Override
+    public void reply(RoomApply roomApply) {
+        roomApply.reply("可使用MidRoom");
+    }
+}
+
+public class LargeRoom extends  Room {
+    public LargeRoom(int peopleCount) {
+        super(peopleCount);
+    }
+
+    @Override
+    public void reply(RoomApply roomApply) {
+        roomApply.reply("可使用LargeRoom");
+    }
+}
+
+public class Action {
+    public static void main(String[] args){
+        LargeRoom largeRoom = new LargeRoom(40);
+        MidRoom midRoom = new MidRoom(20);
+        midRoom.setRoom(largeRoom);
+        SmallRoom smallRoom = new SmallRoom(8);
+        smallRoom.setRoom(midRoom);
+
+        RoomApply roomApply4 = new RoomApply(4);
+        smallRoom.handleApply(roomApply4);
+        roomApply4.obtainReply();
+
+        RoomApply roomApply16 = new RoomApply(16);
+        smallRoom.handleApply(roomApply16);
+        roomApply16.obtainReply();
+
+        RoomApply roomApply32 = new RoomApply(32);
+        smallRoom.handleApply(roomApply32);
+        roomApply32.obtainReply();
+
+        RoomApply roomApply48 = new RoomApply(48);
+        smallRoom.handleApply(roomApply48);
+        roomApply48.obtainReply();
+    }
+}

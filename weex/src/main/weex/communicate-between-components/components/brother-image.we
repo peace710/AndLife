@@ -1,0 +1,18 @@
+<template>
+	<div>
+		<image src="{{url}}" style="width:145;height:218;"></image>
+	</div>
+</template>
+
+<script>
+	module.exports = {
+		data:{
+			url:''
+		},
+		created:function(){
+			this.$on('updateImage',function(e){
+				this.url = e.detail.url;
+			});
+		}
+	}
+</script>

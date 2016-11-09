@@ -1,0 +1,41 @@
+<template>
+	<container style="flex-direction:column;">
+		<text class="content" onclick="toggle">Toggle</text>
+		<image class="thumb" src="http://ww4.sinaimg.cn/mw1024/a13fa4bbgw1eouylimvfcj20g40o6myl.jpg" if="{{visible}}"></image>
+	</container>
+</template>
+
+<style>
+	.content{
+		font-size:50;
+		color:green;
+	}
+	.thumb{
+		width:232;
+		height:348;
+	}
+</style>
+
+<script>
+	module.exports = {
+		data:{
+			visible:true
+		},
+		methods:{
+			toggle:function(){
+				this.visible = !this.visible;
+			}
+		}
+	}
+</script>
+
+<!--
+Weex通过repeat属性来生成列表.
+NOTE: 当你修改 data 中的数组时，在写法上会受到一定的限制，具体如下
+直接通过 index 修改数组的某个项目 (如 vm.items[0] = {};) 是不会触发视图自动更新的。我们在数组的原型上提供了一个额外的方法：$set(index, item).
+// 和 `example1.items[0] = ...` 作用相同，但会自动触发视图更新
+example1.items.$set(0, { childMsg: 'Changed!'})
+直接通过修改 length 来改变数组长度 (如 vm.items.length = 0) 也是不会触发视图自动更新的。我们推荐您直接赋值一个新的空数组把旧的替换掉。
+// 和 `example2.items.length = 0` 作用相同，但会自动触发视图更新
+example2.items = []
+-->

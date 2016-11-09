@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.apps.MainActivity" >
+    <item android:id="@+id/zoom_out"
+        android:title="@string/zoom_out"
+        android:orderInCategory="98"
+        android:showAsAction="never" />
+    <item android:id="@+id/dept"
+        android:title="@string/depth"
+        android:orderInCategory="99"
+        android:showAsAction="never" />
+
+</menu>

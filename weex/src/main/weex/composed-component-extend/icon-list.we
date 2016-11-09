@@ -1,0 +1,21 @@
+<template>
+	<container>
+		<text class="desc">{{decription}}</text>
+		<icon repeat="{{list}}" title="{{text}}" image="{{img}}"></icon>
+	</container>
+</template>
+
+<style>
+.desc{
+	font-size:48;
+}
+</style>
+
+<script>
+	module.exports = {
+		data:{
+			decription:'',
+			list:[]
+		}
+	}
+</script>

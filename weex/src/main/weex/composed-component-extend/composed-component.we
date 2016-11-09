@@ -1,0 +1,25 @@
+<template>
+	<icon-list list="{{list}}">
+	</icon-list>
+</template>
+
+<script>
+	module.exports = {
+		data:{
+			description:'Composed Component',
+			list:[
+			{text:'kobe&mcgrady',img:'http://ww2.sinaimg.cn/bmiddle/920fda58jw1f9bkph0truj20kj0odjw3.jpg'},
+			{text:'momo',img:'http://ww4.sinaimg.cn/mw1024/a13fa4bbgw1eouylimvfcj20g40o6myl.jpg'},
+			{text:'rina',img:'http://ww1.sinaimg.cn/mw1024/a13fa4bbgw1eqk2g9j530j20go0m80v8.jpg'}
+			]
+		}
+	}
+</script>
+
+<!--
+注意事项
+每个封装好的组件都有一个独立的style
+如果子组件有 id 属性，可以通过this.$vm(id)来访问子组件的上下文，并可以通过this.$el(id)来找节点
+只有在 data 选项中明确写明的 key 才会被数据监听，不论是基于上层数据传递下来的场景还是内部修改数据的时候
+
+-->

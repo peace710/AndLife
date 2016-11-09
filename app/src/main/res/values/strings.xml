@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">AndLife</string>
+    <string name="basic">Basic</string>
+    <!--**************************************************-->
+    <string name="javascript">JavaScript</string>
+    <string name="react">React</string>
+    <!--**************************************************-->
+    <string name="intent_service">IntentService</string>
+    <!--**************************************************-->
+    <string name="transition">Transition</string>
+    <string name="animation">Animation</string>
+    <string name="cross_fade">CrossFade</string>
+    <string name="screen_slide">ScreenSlide</string>
+    <string name="card_flip">CardFlip</string>
+    <string name="zoom">Zoom</string>
+    <string name="layout_changes">Layout Changes</string>
+    <!--**************************************************-->
+    <string name="activity_life_cycles">Activity Life Cycles</string>
+    <!--**************************************************-->
+    <string name="weex">Weex</string>
+    <string name="weex_hello">Hello</string>
+    <string name="weex_extends_to_android">Extends To Android</string>
+    <string name="weex_data_binding">Data Binding</string>
+    <string name="weex_tech_list">Tech List</string>
+    <string name="weex_in_template">In Template</string>
+    <string name="weex_computed_properties">Computed Properties</string>
+    <string name="weex_if">If</string>
+    <string name="weex_static">Static</string>
+    <string name="weex_style_class">Style Class</string>
+    <string name="weex_event">Event</string>
+    <string name="weex_repeat">Repeat</string>
+    <string name="weex_repeat_extend">Repeat Extend</string>
+    <string name="weex_render_logic_control">Render Logic Control</string>
+    <string name="weex_composed_component">Composed Component</string>
+    <string name="weex_composed_component_extend">Composed Component Extend</string>
+    <string name="weex_find_an_element">Find An Element</string>
+    <string name="weex_communicate_between_components">Communicate Between Components</string>
+    <string name="weex_child_parent">Child To Parent</string>
+    <string name="weex_parent_child">Parent To Child</string>
+    <string name="weex_parent_childs">Parent To Childs</string>
+    <string name="weex_brother">Brother</string>
+</resources>

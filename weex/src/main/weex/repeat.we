@@ -1,0 +1,37 @@
+<template>
+	<container>
+		<container repeat="{{list}}">
+			<image class="avatar" src="{{avatar}}"></image>
+			<text  class="{{gender}}">{{nickname}} - {{group}}</text>
+		</container>
+	</container>
+</template>
+
+<style>
+.male{
+	color:blue;
+	font-size:48;
+}
+.female{
+	color:red;
+	font-size:48;
+}
+.avatar{
+	width:200;
+	height:200;
+	border-radius:100;
+}
+</style>
+
+<script>
+	module.exports = {
+		data:{
+			list:[
+				{gender:'male',avatar:'http://ww2.sinaimg.cn/bmiddle/920fda58jw1f9bkph0truj20kj0odjw3.jpg',nickname:'kobe&mcgrady'},
+				{gender:'female',avatar:'http://ww4.sinaimg.cn/mw1024/a13fa4bbgw1eouylimvfcj20g40o6myl.jpg',nickname:'momo'},
+				{gender:'female',avatar:'http://ww1.sinaimg.cn/mw1024/a13fa4bbgw1eqk2g9j530j20go0m80v8.jpg',nickname:'rina'}
+			],
+			group:'stars'
+		}
+	}
+</script>

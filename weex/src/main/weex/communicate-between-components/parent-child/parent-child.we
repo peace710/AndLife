@@ -1,0 +1,23 @@
+<template>
+	<div>
+		<text style="font-size:48" onclick="update">Click to update child</text>
+		<another-child id="child" title="Parent-Child" url="http://ww4.sinaimg.cn/mw1024/a13fa4bbgw1eouylimvfcj20g40o6myl.jpg"></another-child>
+	</div>
+</template>
+
+<script>
+	require('../components/another-child.we');
+	module.exports = {
+		methods:{
+			update:function(){
+				var child = this.$vm('child');
+				child.onUpdate('rina');
+				child.url = 'http://ww1.sinaimg.cn/mw1024/a13fa4bbgw1eqk2g9j530j20go0m80v8.jpg';
+			}
+		}
+	}
+</script>
+
+<!--
+父组件可以使用 this.$([String id]) 来获取子组件的上下文。你可以使用上下文对象访问子组件的信息。
+-->

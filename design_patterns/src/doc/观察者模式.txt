@@ -1,0 +1,131 @@
+﻿观察者模式
+定义：当对象间存在一对多关系时，则使用观察者模式。
+当一个对象（被观察者）被修改时，则会通知它的依赖对象更新。
+
+//观察者
+public interface Observer<T> {
+    public void update(T t);
+}
+
+//被观察者
+public interface Observable {
+    public void subscribe(Observer observer);
+    public void unsubscribe(Observer observer);
+    public void notifyUpdate();
+}
+
+public class SecurityGuards implements Observer<Integer> {
+    @Override
+    public void update(Integer integer) {
+        int currentMemory = integer.intValue();
+        int memory = ComputerData.MEMORY - currentMemory;
+        if (memory <= ComputerData.LOW_MEMORY){
+            System.out.println("SecurityGuards:系统内存使用紧张,请关闭一些应用释放内存!");
+        }else if (memory <= ComputerData.NORMAL_MEMORY){
+            System.out.println("SecurityGuards:系统运行很正常!");
+        }else if (memory <= ComputerData.MEMORY){
+            System.out.println("SecurityGuards:系统运行十分流畅!");
+        }
+    }
+}
+
+public class QQSecurityGuards implements Observer<Integer>{
+    @Override
+    public void update(Integer integer) {
+        int currentMemory = integer.intValue();
+        int memory = ComputerData.MEMORY - currentMemory;
+        if (memory <= ComputerData.LOW_MEMORY){
+            System.out.println("QQSecurityGuards:内存不足,当前可用内存为" + memory + "MB,请关闭一些应用释放内存!");
+        }else if (memory <= ComputerData.NORMAL_MEMORY){
+            System.out.println("QQSecurityGuards:内存使用正常,当前可用内存为" + memory + "MB");
+        }else if (memory <= ComputerData.MEMORY){
+            System.out.println("QQSecurityGuards:系统运行十分流畅,当前可用内存为" + memory + "MB");
+        }
+    }
+}
+
+public class ComputerData {
+    private ComputerData(){
+        throw new IllegalStateException();
+    }
+
+    public static final int MEMORY = 4096;
+    public static final int LOW_MEMORY = 512;
+    public static final int NORMAL_MEMORY = 2048;
+}
+
+public class Computer implements Observable {
+    private List<Observer> list;
+    private int memory;
+
+    public Computer(){
+        list = new ArrayList<>();
+    }
+
+    @Override
+    public void subscribe(Observer observer) {
+        list.add(observer);
+    }
+
+    @Override
+    public void unsubscribe(Observer observer) {
+        list.remove(observer);
+    }
+
+    @Override
+    public void notifyUpdate() {
+        for (Observer observer : list){
+            observer.update(memory);
+        }
+    }
+
+    public void setMemory(int memory) {
+        this.memory = memory;
+    }
+
+    public void install(Observer observer){
+        subscribe(observer);
+    }
+
+    public void uninstall(Observer observer){
+        unsubscribe(observer);
+    }
+}
+
+public class Action {
+    public static void main(String[] args){
+        SecurityGuards guards = new SecurityGuards();
+        QQSecurityGuards securityGuards = new QQSecurityGuards();
+        Computer computer = new Computer();
+        computer.install(guards);
+        computer.install(securityGuards);
+        int currentMemory = new Random().nextInt(4096);
+        computer.setMemory(currentMemory);
+        computer.notifyUpdate();
+        computer.uninstall(guards);
+        computer.uninstall(securityGuards);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

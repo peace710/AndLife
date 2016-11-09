@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.apps.MainActivity" >
+    <item android:id="@+id/add_button"
+        android:title="@string/add_button"
+        android:orderInCategory="98"
+        android:showAsAction="never" />
+    <item android:id="@+id/remove_button"
+        android:title="@string/remove_button"
+        android:orderInCategory="99"
+        android:showAsAction="never" />
+
+</menu>

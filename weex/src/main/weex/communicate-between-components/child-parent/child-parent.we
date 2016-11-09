@@ -1,0 +1,25 @@
+<template>
+	<child title="{{message}}" url="http://ww4.sinaimg.cn/mw1024/a13fa4bbgw1eouylimvfcj20g40o6myl.jpg">
+	</child>
+</template>
+
+<script>
+	require('../components/child.we')
+	module.exports = {
+		data:{
+			message:'child-parent'
+		},
+		created:function(){
+			this.$on('notify',function(e){
+				this.message = e.detail.msg;
+			})
+		}
+	}
+</script>
+
+<!--
+子组件可以使用this.$dispatch([String type], [Object detail]) 方法传递消息给父组件。
+第一个参数定义消息类型，第二个参数为消息对象。
+如果父组件中的任何子组件使用$on([String type], [Function callback])注册监听事件，
+则回调执行第一个参数，参数中的 detail属性是消息数据。
+-->

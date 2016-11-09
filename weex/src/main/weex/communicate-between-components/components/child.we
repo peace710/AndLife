@@ -1,0 +1,21 @@
+<template>
+	<div>
+		<image src="{{url}}" onclick="notifyMsg" style="width:145;height:218;"></image>
+		<text style="font-size:48;">{{title}}</text>
+	</div>
+</template>
+
+<script>
+	module.exports = {
+		data:{
+			title:'',
+			url:''
+		},
+		methods:{
+			notifyMsg:function(){
+				this.$dispatch('notify',{msg:'a new message'})
+			}
+		}
+	}
+</script>
+

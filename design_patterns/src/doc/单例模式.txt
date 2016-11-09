@@ -1,0 +1,107 @@
+单例模式
+定义：确保某一个类只有一个实例，而且自行实例化并向整个系统提供这个实例。
+
+一般就是将构造方法定义为私有的，并通过静态方法生成并提供这个实例。
+
+饿汉式
+class Singleton1{
+    private static Singleton1 instance = new Singleton1();
+
+    private Singleton1(){
+
+    }
+
+    public static Singleton1 getInstance(){
+        return instance;
+    }
+}
+如果单例对象初始化非常快，占用内存非常小的时候适合使用这种方式。
+
+懒汉式
+class Singleton2{
+    private static Singleton2 instance; 
+    
+    private Singleton2(){
+        
+    }
+    
+    public static Singleton2 getInstance(){
+        if (null == instance){
+            instance = new Singleton2();
+        }
+        return instance;
+    }
+
+}
+单例的初始化要消耗大量的资源，适合使用这种方式，可以起到延迟加载的作用。
+
+懒汉式同步锁
+class Singleton3{
+    private static Singleton3 instance;
+    
+    private Singleton3(){
+        
+    }
+    
+
+    public static Singleton3 getInstance(){
+        synchronized (Singleton3.class) {
+            if (null == instance) {
+                instance = new Singleton3();
+            }
+        }
+        return  instance;
+    }
+}
+懒汉式同步锁这种方式可以避免多线程并发而导致产生多个实例。
+可以参考Android InputMethodManager示例
+	
+双重校验锁	
+class Singleton4{
+    private static volatile Singleton4 instance;
+
+    private Singleton4(){
+
+    }
+
+    public static Singleton4 getInstance(){
+        if (null == instance) {
+            synchronized (Singleton4.class) {
+                if (null == instance){
+                    instance = new Singleton4();
+                }
+            }
+        }
+        return instance;
+    }
+
+}	
+这种方式相对于懒汉式同步锁来说，多了层if的判断，当已经生成过实例后，再次调用可以避免进入同步块
+从而提高了性能。
+	
+	
+静态内部类方式
+class Singleton5{
+    private Singleton5(){
+
+    }
+		
+	private static class SingletonHolder{
+		private static Singleton5 instance = new Singleton5();
+	}
+	
+	public static Singleton5 getInstance(){
+		return SingletonHolder.instance;
+	}
+}
+这种单例方式是线程安全的，同时还支持懒加载。
+
+枚举方式
+enum Singleton6{
+	instance;
+	
+	public void doSomething(){
+		//add your code
+	}
+}
+	

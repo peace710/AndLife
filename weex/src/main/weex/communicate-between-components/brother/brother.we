@@ -1,0 +1,29 @@
+<template>
+	<div>
+		<brother-text title="brothers" onclick="request" id="child"></brother-text>
+		<brother-image></brother-image>
+	</div>
+</template>
+
+<script>
+	require('../components/brother-image.we')
+	require('../components/brother-text.we')
+	module.exports = {
+		created:function(){
+			var self = this;
+			this.$on('requestUpdate',function(e){
+				self.$broadcast('updateImage',e.detail)
+			});
+		},
+		methods:{
+			request:function(){
+				var child = this.$vm('child');
+				child.update();
+			}
+		}
+	}
+</script>
+
+<!--
+兄弟组件间通过公共的父组件作为桥梁来传递消息。
+-->

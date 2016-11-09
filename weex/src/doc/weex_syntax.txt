@@ -1,0 +1,99 @@
+语法综述
+
+Weex页面由<template>,<style>,<script>三个部分构成
+<template> 必须的，使用类HTML的语法描述页面结构，内容由多个标签组成，不同的标签代表不同的组件。
+<style> 可选的，使用类CSS的语法描述页面的具体展现形式。
+<script> 可选的，使用JavaScript描述页面中的数据和页面的行为，Weex中的数据定义也在<script>中进行。
+
+<template>
+  <!-- (required) the structure of page -->
+</template>
+
+<style>
+  /* (optional) stylesheet */
+</style>
+
+<script>
+  /* (optional) the definition of data, methods and life-circle */
+</script>
+
+===================================================================
+<template>
+	<container>
+		<image style="width:200;height:200;" src="http://ww4.sinaimg.cn/mw1024/a13fa4bbgw1eouylimvfcj20g40o6myl.jpg"></image>
+		<text>momo<text>
+	</container>
+</template>
+
+container标签是一个根节点，其下包含描述图片的image标签和描述一段文字的text标签
+和HTML类似，不同标签代表的元素/组件有各自的属性，其中一些组件还能有子组件
+根节点 每个template标签中的最顶层标签，我们称为根节点。
+下面是目前我们支持的三种不同的根节点：
+<container>普通根节点
+<scroller>滚动器根节点适用于需要全页滚动的场景
+<list>列表根节点适用于其中包含重复的子元素的列表场景
+
+
+===================================================================
+style
+Weex的样式语法为CSS的一个子集
+第一种写法，在标签上直接通过内联style属性编写样式
+第二种写法，通过标签中的class属性与style标签定义的样式建立对应关系
+<template>
+	<container>
+		<text style="font-size:64;">Alibaba</text>
+		<text class="large">Weex Team</text>
+	</container>
+</template>
+
+<style>
+	.large {font-size:64;}
+</style>
+
+weex遵循HTML属性命名规范, 所以属性命名时请不要使用陀峰格式(CamelCase),采用以“-”分割的long-name形式.
+
+
+
+
+==================================================================
+script
+<script>中的代码遵循JavaScript(ES5)语法，描述页面中的数据和页面的行为。
+<template>
+	<container>
+		<text>The time is {{dateTime}}</text>
+		<text>{{title}}</text>
+		<text>{{getTitle()}}</text>
+	</container>
+</template>
+
+<script>
+	module.exports = {
+		data:{
+			title:'Alibaba',
+			dateTime: null
+		},
+		methods:{
+			getTitle:function(){
+				return 'Weex Team'
+			}
+		},
+		created:function(){
+			this.dateTime = new Date().toLocaleString();
+		}
+	}
+</script>
+
+上面<script>标签中定义了被赋值给 module.exports 的对象.
+其作用是让三个<text>标签显示当前时间,'Alibaba' 和 'Weex Team'.
+<script>中的data存储可以用于在<template>标签中进行数据绑定的数据
+当这些数据变更时,被进行了数据绑定的标签也会自动更新.
+这些数据在<script>中的各个方法内可以通过this.x读写.
+
+
+
+
+
+
+
+
+

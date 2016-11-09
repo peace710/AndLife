@@ -1,0 +1,18 @@
+<template>
+	<div>
+		<text style="font-size:48;">{{title}}</text>
+	</div>
+</template>
+
+<script>
+	module.exports = {
+		data:{
+			title:''
+		},
+		methods:{
+			update:function(){
+				this.$dispatch('requestUpdate',{url:'http://ww4.sinaimg.cn/mw1024/a13fa4bbgw1eouylimvfcj20g40o6myl.jpg'});
+			}
+		}
+	}
+</script>

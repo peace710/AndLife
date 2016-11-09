@@ -1,0 +1,127 @@
+﻿代理模式
+定义：给某一个对象提供一个代理，实现控制该对象的访问。
+代理类和委托类有共同的父类或父接口，以便任何使用委托类的地方都可以用代理类替代。
+代理类负责请求的预处理、过滤、将请求分派给委托类片，以及委托类执行完成后的后续处理。
+
+参考Retrofit、Android Binder
+
+
+静态代理
+在程序编译时就已经确定代理类与委托类的关系，缺点就是新增接口时，代理类与委托类都需要改代码。
+public interface Function {
+    public void run();
+}
+
+public class App implements Function {
+    private String name;
+
+    public App(String name){
+        this.name = name;
+    }
+
+    @Override
+    public void run() {
+        System.out.println(name + " is  running!");
+    }
+}
+
+public class AppManager implements Function {
+    private App delegate;
+
+    public AppManager(App delegate){
+        this.delegate = delegate;
+    }
+
+    @Override
+    public void run() {
+        long startTime = System.currentTimeMillis();
+        System.out.println("App starts at " + new Date(startTime));
+        delegate.run();
+    }
+}
+
+public class Action {
+    public static void main(String args[]){
+        App app = new App("QQ");
+        AppManager manager = new AppManager(app);
+        manager.run();
+
+    }
+}
+
+动态代理
+在程序运行时由JVM根据反射等机制动态生成，代理类与委托类的关系在运行时确定。
+public interface WebFunction {
+    public void request(String url);
+}
+
+public class Browser implements WebFunction{
+    @Override
+    public void request(String url){
+        System.out.println(url);
+    }
+}
+
+public class ProxyInvocationHandler implements InvocationHandler {
+   private Object delegate;
+
+    public ProxyInvocationHandler(Object delegate) {
+        this.delegate = delegate;
+    }
+
+    @Override
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        String url = args[0].toString();
+        System.out.println("Check the url:" + url);
+        if (!url.toString().contains("taobao")) {
+            return method.invoke(delegate, args);
+        }
+        System.out.println("Mo permission to request the website!");
+        return null;
+    }
+
+}
+
+public class ProxyPool {
+    private ProxyPool(){
+        throw new IllegalStateException();
+    }
+
+    static <T> T create(Object obj){
+        return (T) Proxy.newProxyInstance(obj.getClass().getClassLoader(),obj.getClass().getInterfaces(),new ProxyInvocationHandler(obj));
+    }
+}
+
+public class Action {
+    public static void main(String args[]){
+        WebFunction proxyBrowser = ProxyPool.create(new Browser());
+        proxyBrowser.request("http://www.baidu.com");
+        proxyBrowser.request("http://www.taobao.com");
+        proxyBrowser.request("http://www.google.com");
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

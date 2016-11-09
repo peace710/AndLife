@@ -1,0 +1,58 @@
+<template>
+	<container>
+		<container repeat="{{v in list}}">
+			<image class="avatar" src="{{v.avatar}}"></image>
+			<text  class="{{v.gender}}">No.{{$index+1}} - {{v.nickname}} - {{group}}</text>
+		</container>
+		
+		<container repeat="{{(k,v) in list}}">
+			<image class="avatar" src="{{v.avatar}}"></image>
+			<text  class="{{v.gender}}">No.{{k+1}} - {{v.nickname}} - {{group}}</text>
+		</container>
+	</container>
+</template>
+
+<style>
+.male{
+	color:blue;
+	font-size:48;
+}
+.female{
+	color:red;
+	font-size:48;
+}
+.avatar{
+	width:200;
+	height:200;
+	border-radius:100;
+}
+</style>
+
+<script>
+	module.exports = {
+		data:{
+			list:[
+				{gender:'male',avatar:'http://ww2.sinaimg.cn/bmiddle/920fda58jw1f9bkph0truj20kj0odjw3.jpg',nickname:'kobe&mcgrady'},
+				{gender:'female',avatar:'http://ww1.sinaimg.cn/mw1024/a13fa4bbgw1eqk2g9j530j20go0m80v8.jpg',nickname:'rina'}
+			],
+			group:'stars'
+		}
+	}
+</script>
+
+<!--
+使用track-by追踪特殊的属性
+通常情况下，当更新repeat数组时，所有数组元素关联的组件节点都会被重新渲染。
+如果其中部分节点的数据在更新前后未发生变更，那么最好是让这些节点保持原样，
+仅更新数据有变化的节点，weex提供了track-by属性能帮您轻松搞定。
+
+<template>
+    <container>
+        <container repeat="{{list}}" track-by="nickname" class="{{gender}}">
+            <image src="{{avatar}}"></image>
+            <text>{{nickname}} - {{group}}</text>
+        </container>
+    </container>
+</template>
+如前所述，当更新repeat数组时，如果检测到属性nickname的值前后一致，那么它所绑定的子节点将不被重新渲染。
+-->

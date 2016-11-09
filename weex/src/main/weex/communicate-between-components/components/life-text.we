@@ -1,0 +1,20 @@
+<template>
+	<div>
+		<life-image></life-image>
+		<text style="font-size:48;">{{title}}</text>
+	</div>
+</template>
+
+<script>
+	module.exports = {
+		data:{
+			title:''
+		},
+		created:function(){
+			var self = this;
+			this.$on('changeTitle',function(e){
+				self.title = e.detail.title;
+			});
+		}
+	}
+</script>

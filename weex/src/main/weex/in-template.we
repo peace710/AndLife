@@ -1,0 +1,14 @@
+<template>
+	<container>
+		<text style="font-size:100">{{firstName + ' ' + lastName}}</text>
+	</container>
+</template>
+
+<script>
+	module.exports = {
+		data:{
+			firstName : 'Trace',
+			lastName : 'McGrady'
+		}
+	}
+</script>

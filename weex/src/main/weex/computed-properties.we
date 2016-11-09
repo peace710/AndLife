@@ -1,0 +1,38 @@
+<template>
+	<container style="flex-direction:row;">
+		<text class="content" onclick = "changeName">{{fullName}}</text>
+	</container>
+</template>
+
+<style>
+.content{
+	font-size:50;
+	color:green;
+}
+</style>
+
+<script>
+	module.exports = {
+		data:{
+			firstName : 'Trace',
+			lastName : 'McGrady'
+		},
+		computed:{
+			fullName:{
+				get:function(){
+					return this.firstName + ' ' + this.lastName; 
+				},
+				set:function(v){
+					var s = v.split(' ');
+					this.firstName = s[0];
+					this.lastName = s[1];
+				}
+			}
+		},
+		methods:{
+			changeName:function(){
+				this.fullName = "Kobe Bryant";
+			}
+		}
+	}
+</script>

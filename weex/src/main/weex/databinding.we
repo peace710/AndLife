@@ -1,0 +1,15 @@
+<template>
+	<container>
+    	<text style='font-size:{{size}};color:{{color}}'>{{content}}</text>
+    </container>
+</template>
+
+<script>
+	module.exports ={
+		data:{
+			size:64,
+			content:'Weex Study',
+			color:'red'
+		}
+	}
+</script>
