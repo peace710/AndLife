@@ -1,0 +1,27 @@
+<template>
+  <div>
+    <slider auto-play="true" onchange="changeImage" style="width:480;height:450;">
+      <image repeat="{{list}}" src="{{url}}" resize="cover" style="width:480;height:450;"></image>
+      <indicator style="margin-top:200;"></indicator>
+    </slider>
+  </div>
+</template>
+
+<script>
+  module.exports = {
+    data: {
+      list: [
+	  {url: 'http://ww2.sinaimg.cn/bmiddle/920fda58jw1f9bkph0truj20kj0odjw3.jpg'},
+	  {url: 'http://ww1.sinaimg.cn/mw1024/a13fa4bbgw1eqk2g9j530j20go0m80v8.jpg'},
+	  {url: 'http://ww4.sinaimg.cn/mw1024/a13fa4bbgw1eouylimvfcj20g40o6myl.jpg'}
+	  ]
+    },
+    methods: {
+      changeImage: function (e) {
+        // e.index
+		console.log("index = " + e.index)
+      }
+    }
+  }
+</script>
+

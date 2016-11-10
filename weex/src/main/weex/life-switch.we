@@ -1,0 +1,31 @@
+<template>
+	<div style="flex-direction:row; padding:20;">
+		<switch checked="true" onchange="getValue"></switch>
+		<text class="input" style="margin-left:20;justify-content:center; ">{{value}}</text>
+	</div>
+</template>
+
+<style>
+.input{
+	width:200;
+	height:100;
+	font-size:40;
+}
+</style>
+
+<script>
+	module.exports = {
+		data:{
+			value:'on'
+		},
+		methods:{
+			getValue:function(e){
+				if (e.value){
+					this.value = 'on';
+				}else{
+					this.value = 'off';
+				}
+			}
+		}
+	}
+</script>

@@ -1,0 +1,37 @@
+<template>
+  <scroller style="height:720;">
+    <div repeat="{{list}}">
+      <text style="font-size:45;color:red;">{{name}}: ${{price}}</text>
+    </div>
+  </scroller>
+</template>
+
+<script>
+  module.exports = {
+    data: {
+      list: [
+        {name: 'abc', price: 100},
+        {name: 'cba', price: 500},
+        {name: 'nba', price: 1.5},
+		{name: 'abc', price: 100},
+        {name: 'cba', price: 500},
+        {name: 'nba', price: 1.5},
+		{name: 'abc', price: 100},
+        {name: 'cba', price: 500},
+        {name: 'nba', price: 1.5},
+		{name: 'abc', price: 100},
+        {name: 'cba', price: 500},
+        {name: 'nba', price: 1.5},
+		{name: 'abc', price: 100},
+        {name: 'cba', price: 500},
+        {name: 'nba', price: 1.5},
+		{name: 'abc', price: 100},
+        {name: 'cba', price: 500},
+        {name: 'nba', price: 1.5},
+		{name: 'abc', price: 100},
+        {name: 'cba', price: 500},
+        {name: 'nba', price: 1.5}
+      ]
+    }
+  }
+</script>

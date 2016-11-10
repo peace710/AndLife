@@ -37,7 +37,12 @@ public class WeexActivity extends AppCompatActivity {
             new Data(R.string.weex_composed_component,WeexActionActivity.class,WXConfig.JS_COMPOSED_COMPONENT),
             new Data(R.string.weex_composed_component_extend,WeexActionActivity.class,WXConfig.JS_COMPOSED_COMPONENT_EXTEND),
             new Data(R.string.weex_find_an_element,WeexActionActivity.class,WXConfig.JS_FIND_AN_ELEMENT),
-            new Data(R.string.weex_communicate_between_components,WeexCommunicateActivity.class)
+            new Data(R.string.weex_communicate_between_components,WeexCommunicateActivity.class),
+            new Data(R.string.weex_scroller,WeexActionActivity.class,WXConfig.JS_SCROLLER),
+            new Data(R.string.weex_input,WeexActionActivity.class,WXConfig.JS_INPUT),
+            new Data(R.string.weex_switch,WeexActionActivity.class,WXConfig.JS_SWITCH),
+            new Data(R.string.weex_slider,WeexActionActivity.class,WXConfig.JS_SLIDER)
+
     };
 
 

@@ -39,4 +39,8 @@
     <string name="weex_parent_child">Parent To Child</string>
     <string name="weex_parent_childs">Parent To Childs</string>
     <string name="weex_brother">Brother</string>
+    <string name="weex_scroller">Scroller</string>
+    <string name="weex_input">Input</string>
+    <string name="weex_switch">Switch</string>
+    <string name="weex_slider">Slider</string>
 </resources>

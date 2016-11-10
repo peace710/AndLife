@@ -1,0 +1,43 @@
+<template>
+	<div>
+		<input type="text" class="input" autofocus="true" placeholder="text" oninput="getValue"></input>
+		<input type="text" class="input" disabled="true" value="no input"></input>
+		<input type="password" class="input" placeholder="password"></input>
+		<input type="tel" class="input" placeholder="tel"></input>
+		<input type="email" class="input" placeholder="email"></input>
+		<input type="url" class="input" placeholder="url" style="placeholder-color:red;"></input>
+		<text class="input">{{value}}</text>
+	</div>
+</template>
+
+<style>
+.input{
+	width:480;
+	height:100;
+	font-size:50;
+}
+</style>
+
+<script>
+	module.exports = {
+		data:{
+			value:''
+		},
+		methods:{
+			getValue:function(e){
+				this.value = e.value;
+			}
+		}
+	}
+</script>
+
+<!--
+事件
+input:该元素改变的值
+change:改变事件是当组件提交的值已经改变的时候用户中断结果。经常跟在<blur>事件之后。
+focus:组件获取焦点。
+blur:组件失去焦点。
+基本事件：查阅基本事件
+支持 appear / disappear 事件。查阅基本事件
+注意：input不支持基础事件click.请用监听事件input或者change事件代替。
+-->

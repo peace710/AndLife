@@ -41,6 +41,10 @@ public class WXConfig {
     public static final String JS_PARENT_CHILD = "parent-child";
     public static final String JS_PARENT_CHILDS = "parent-childs";
     public static final String JS_BROTHER = "brother";
+    public static final String JS_SCROLLER = "scroller";
+    public static final String JS_INPUT = "input";
+    public static final String JS_SWITCH = "switch";
+    public static final String JS_SLIDER= "slider";
 
     public static void init(Application application){
         //初始化WXSDK
@@ -74,6 +78,10 @@ public class WXConfig {
             WXJavaScriptPool.register(JS_PARENT_CHILD,"communicate-between-components/parent-child.js");
             WXJavaScriptPool.register(JS_PARENT_CHILDS,"communicate-between-components/parent-childs.js");
             WXJavaScriptPool.register(JS_BROTHER,"communicate-between-components/brother.js");
+            WXJavaScriptPool.register(JS_SCROLLER,"life-scroller.js");
+            WXJavaScriptPool.register(JS_INPUT,"life-input.js");
+            WXJavaScriptPool.register(JS_SWITCH,"life-switch.js");
+            WXJavaScriptPool.register(JS_SLIDER,"life-slider.js");
         } catch (WXException e) {
             e.printStackTrace();
         }
