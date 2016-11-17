@@ -45,6 +45,9 @@ public class WXConfig {
     public static final String JS_INPUT = "input";
     public static final String JS_SWITCH = "switch";
     public static final String JS_SLIDER= "slider";
+    public static final String JS_LIST= "list";
+    public static final String JS_VIDEO= "video";
+    public static final String JS_WEB= "web";
 
     public static void init(Application application){
         //初始化WXSDK
@@ -82,6 +85,9 @@ public class WXConfig {
             WXJavaScriptPool.register(JS_INPUT,"life-input.js");
             WXJavaScriptPool.register(JS_SWITCH,"life-switch.js");
             WXJavaScriptPool.register(JS_SLIDER,"life-slider.js");
+            WXJavaScriptPool.register(JS_LIST,"life-list.js");
+            WXJavaScriptPool.register(JS_VIDEO,"life-video.js");
+            WXJavaScriptPool.register(JS_WEB,"life-web.js");
         } catch (WXException e) {
             e.printStackTrace();
         }

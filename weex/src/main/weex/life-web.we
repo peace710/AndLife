@@ -1,0 +1,35 @@
+<template>
+	<div>
+		<web class="web" src="{{src}}" onpagestart="pagestart" onpagefinish="pagefinish" onerror="error"></web>
+	</div>
+</template>
+
+<style>
+	.web{
+		width:750;
+		height:1200;
+	}
+</style>
+
+<script>
+	var common = require('@weex-module/commonModule');
+	module.exports = {
+		data:{
+			src:'http://gank.io/'
+		},
+		methods:{
+			pagestart:function(){
+				console.log('pagestart');
+				common.toast('pagestart');
+			},
+			pagefinish:function(){
+				console.log('pagefinish');
+				common.toast('pagefinish');
+			},
+			error:function(){
+				console.log('error');
+				common.toast('error');
+			}
+		}
+	}
+</script>

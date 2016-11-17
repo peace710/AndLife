@@ -1,0 +1,39 @@
+<template>
+	<div>
+		<video class="video" auto-play="true" play-status="play" onstart="start" onpause="pause" onfinish="finish" onfail="fail" src="{{src}}"></video>
+	</div>
+</template>
+
+<style>
+	.video{
+		width:750;
+		height:420;
+	}
+</style>
+
+<script>
+	var common = require('@weex-module/commonModule');
+	module.exports = {
+		data:{
+			src:'http://gslb.miaopai.com/stream/gAg3h3zMUJJikFBAzZ5Maw__.mp4'
+		},
+		methods:{
+			start:function(){
+				console.log('start');
+				common.toast('start');
+			},
+			pause:function(){
+				console.log('pause');
+				common.toast('pause');
+			},
+			finish:function(){
+				console.log('finish');
+				common.toast('finish');
+			},
+			fail:function(){
+				console.log('fail');
+				common.toast('fail');
+			}
+		}
+	}
+</script>

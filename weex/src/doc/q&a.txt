@@ -1,0 +1,5 @@
+Q1.
+ModuleNotFoundError: Module not found: Error: Cannot resolve module 'weex-components' in E:\weex_demo\study\list
+解决方法：
+在当前项目下执行
+npm i weex-components --save

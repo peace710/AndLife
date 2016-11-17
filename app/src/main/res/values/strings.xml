@@ -43,4 +43,7 @@
     <string name="weex_input">Input</string>
     <string name="weex_switch">Switch</string>
     <string name="weex_slider">Slider</string>
+    <string name="weex_list">List</string>
+    <string name="weex_video">Video</string>
+    <string name="weex_web">Web</string>
 </resources>
