@@ -1,0 +1,63 @@
+<template>
+	<container>
+		<text onclick="toast" class="common">Toast</text>
+		<text onclick="alert" class="common" >Alert</text>
+		<text onclick="confirm" class="common">Confirm</text>
+		<text onclick="prompt" class="common">Prompt</text>
+	</container>
+</template>
+
+<style>
+.common{
+	font-size:36;
+	margin:15;
+}
+</style>
+
+<script>
+	var modal; 
+	var that;
+	module.exports = {
+		methods:{
+			toast:function(){
+				that.tip('I am toast!',2);
+			},
+			alert:function(){
+				modal.alert({
+					message: 'I am alert!',
+					okTitle: 'ok'
+				},function(){
+					that.tip('Alert is completed!',2);
+				})
+			},
+			confirm:function(){
+				modal.confirm({
+					message:'I am confirm!',
+					okTitle:'ok',
+					cancelTitle:'cancel'
+				},function(result){
+					that.tip(result,2);
+				});
+			},
+			prompt:function(){
+				modal.prompt({
+					message:'I am prompt!',
+					okTitle:'ok',
+					cancelTitle:'cancel'
+				},function(res){
+					that.tip(res.result + ',' + res.data,2);
+				});
+			},
+			tip:function(msg,duration){
+				modal.toast({
+					'message':msg,
+					'duration':duration
+				});
+			}
+		},
+		init:function(){
+			modal = require('@weex-module/modal');
+			that = this;
+		}
+	}
+</script>

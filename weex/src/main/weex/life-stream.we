@@ -1,0 +1,43 @@
+<template>
+	<scroller style="height:1080;">
+		<text onclick="request" style="font-size:36;">{{src}}</text>
+	</scroller>
+</template>
+
+<script>
+	require('weex-components');
+	module.exports = {
+		data:{
+			src:'click me to request network'
+		},
+		methods:{
+			request:function(){
+				nativeLog('ready to request');
+				this.doRequest();
+				nativeLog('requesting');
+			},
+			doRequest:function(){
+				var stream = require('@weex-module/stream');
+				var that = this;
+				stream.fetch({
+					method:'GET',
+					url:'http://gank.io/api/data/Android/10/1',
+					type:'text'
+				},function(resp){
+					that.src = resp.data;
+					nativeLog('status : ' + resp.status);
+					nativeLog('ok : ' + resp.ok);
+					nativeLog('statusText : ' + resp.statusText);
+					nativeLog('data : ' + resp.data);
+					nativeLog('headers : ' + resp.headers);
+				},function (progress){
+					nativeLog('readuState : ' + progress.readuState);
+					nativeLog('status : ' + progress.status);
+					nativeLog('length : ' + progress.length);
+					nativeLog('statusText : ' + progress.statusText);
+					nativeLog('headers : ' + progress.headers);
+				});
+			}
+		}
+	}
+</script>

@@ -48,6 +48,10 @@ public class WXConfig {
     public static final String JS_LIST= "list";
     public static final String JS_VIDEO= "video";
     public static final String JS_WEB= "web";
+    public static final String JS_STREAM= "stream";
+    public static final String JS_MODAL= "modal";
+    public static final String JS_TIMER= "timer";
+    public static final String JS_ANIMATION= "animation";
 
     public static void init(Application application){
         //初始化WXSDK
@@ -88,6 +92,10 @@ public class WXConfig {
             WXJavaScriptPool.register(JS_LIST,"life-list.js");
             WXJavaScriptPool.register(JS_VIDEO,"life-video.js");
             WXJavaScriptPool.register(JS_WEB,"life-web.js");
+            WXJavaScriptPool.register(JS_STREAM,"life-stream.js");
+            WXJavaScriptPool.register(JS_MODAL,"life-modal.js");
+            WXJavaScriptPool.register(JS_TIMER,"life-timer.js");
+            WXJavaScriptPool.register(JS_ANIMATION,"life-animation.js");
         } catch (WXException e) {
             e.printStackTrace();
         }

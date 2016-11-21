@@ -46,4 +46,8 @@
     <string name="weex_list">List</string>
     <string name="weex_video">Video</string>
     <string name="weex_web">Web</string>
+    <string name="weex_stream">Stream</string>
+    <string name="weex_modal">Modal</string>
+    <string name="weex_timer">Timer</string>
+    <string name="weex_animation">Animation</string>
 </resources>

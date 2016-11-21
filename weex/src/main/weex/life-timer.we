@@ -1,0 +1,60 @@
+<template>
+	<container>
+		<text class="common" onclick="start">Start Timer</text>
+		<text class="common" onclick="stop">Stop Timer</text>
+		<text class="common" onclick="delay">Delay</text>
+		<text class="common">{{src}}</text>
+	</container>
+</template>
+
+<style>
+.common{
+	font-size:36;
+	margin:15;
+}
+</style>
+
+<script>
+	var that;
+	var isRun;
+	var timer;
+	module.exports = {
+		data:{
+			src:0
+		},
+		methods:{
+			start:function(){
+				if (!isRun){
+					isRun = true;
+					timer = setInterval(this.onRepeat,2000);
+				}
+			},
+			stop:function(){
+				if (isRun){
+					isRun = false;
+					clearInterval(timer);
+				}
+			},
+			delay:function(){
+				setTimeout(function(){
+					that.tip('execute setTimeout',2);
+					clearTimeout(this);
+				},5000);
+			},
+			tip:function(msg,time){
+				var modal = require('@weex-module/modal');
+				modal.toast({
+					message:msg,
+					duration:time
+				});
+			},
+			onRepeat:function(){
+				that.src++;
+			}
+		},
+		init:function(){
+			that = this;
+			isRun = false;
+		}
+	}
+</script>

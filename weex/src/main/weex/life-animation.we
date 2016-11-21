@@ -1,0 +1,62 @@
+<template>
+	<container>
+		<text id="anim" onclick="start" style="font-size:36;">Hello</text>
+	</container>
+</template>
+
+<script>
+	module.exports = {
+		methods:{
+			start:function(){
+				var animation = require('@weex-module/animation');
+				var anim = this.$el('anim');
+				animation.transition(anim,{
+					styles:{
+						width:450,
+						height:450,
+						color:'#FF4081',
+						transform:'rotate(45deg) scale(2) translate(50%, 50%)',
+						transformOrigin:'center center',
+						backgroundColor:'rgba(103,58,183,.25)',
+						opacity:.8,
+					},
+					duration:3600,
+					timingFuncion:'cubic-bezier(.17,.72,.83,.14)',
+					delay:500
+				},function(){
+					var modal = require('@weex-module/modal');
+					modal.toast({
+						message:'animaion finished',
+						duration:2
+					});
+				});
+			}
+		}
+	}
+</script>
+
+<!--
+API
+transition(node, options, callback)
+Arguments
+
+    node(Node): An element that will be animated.
+    options(object): Transition options.
+        styles(object): Specify the names and values of styles to which a transition effect should be applied.
+            width(length): the the width of the view when the animation finished.
+            height(length): the the height of the view when the animation finished.
+            color(string): the color of the element when the animation finished.
+            transform(object): transform function to be applied to the element. Following value is supported.
+                translate/translateX/translateY(string): translate the element to the new location. The value can be a pixel or percent
+                rotate(string): the unit is degree.
+                scale(string): scale up or scale down the element.
+        duration(number): Specify the number of milliseconds a transition animation should take to complete. By default, the value is 0ms, meaning that no animation will occur.
+        timingFuncion(string): Used to describe how the intermediate values of the styles being affected by a transition effect are calculated. By default, the value is linear, and can also be one of ease-in, ease-out, ease-in-out, linear or cubic-bezier(x1, y1, x2, y2).
+            ifcubic-bezier(x1, y1, x2, y2) is set, equation of 0<=x1<=x2<=1 must be met.
+        delay(number): Specify the amount of milliseconds to wait between a change being requested to a property that is to be transitioned and the start of the transition effect. By default, the value is 0ms.
+    callback Callback which is called after the completion of transition.
+
+Note
+
+Animations listed in transform is much faster than other animaions, as they are GPU accelerated. Developers should make their own choice according to their situation.
+-->
